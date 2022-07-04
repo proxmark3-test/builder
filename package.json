@@ -8,6 +8,8 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "dockerode": "^3.3.2"
+    "dockerode": "^3.3.2",
+    "simple-git": "^3.10.0",
+    "tmp": "^0.2.1"
   }
 }

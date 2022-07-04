@@ -4,6 +4,7 @@ const config = require("./config");
 
 const image = require("./image");
 const network = require("./network");
+const repository = require("./repository");
 
 const builder = {
 	_docker: undefined,
@@ -38,6 +39,22 @@ const builder = {
 
 		return builder._prepareEnvironment.reduce((prev, cur) => prev.then(() => cur(builder._docker)), Promise.resolve()).then(() => {
 			console.log("Prepared environment... Ready to accept commands...");
+		});
+	},
+
+	build: (url, tag) => {
+		const repo = repository(url);
+
+		console.log(`Cloning ${url}`);
+
+		return repo.clone().then(() => {
+			console.log(repo.getPath());
+
+			repo.cleanup();
+		}).catch(err => {
+			repo.cleanup();
+
+			throw err;
 		});
 	}
 };
