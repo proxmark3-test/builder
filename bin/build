@@ -4,6 +4,6 @@ const builder = require("../src");
 
 builder.prepareEnvironment().then(() => {
 	builder.build("https://github.com/RfidResearchGroup/proxmark3", "master");
-});
+}).catch(console.error);
 
 // vi: ft=javascript

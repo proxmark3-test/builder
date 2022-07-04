@@ -30,8 +30,12 @@ module.exports = (docker) => {
 						]
 					}
 				}, {}, function (err, data) {
-					if(err || data.StatusCode != 0) {
+					if(err) {
 						return reject(err);
+					}
+
+					if(data.StatusCode != 0) {
+						return reject(new Error(`Exit code is ${data.StatusCode}`));
 					}
 
 					resolve();
