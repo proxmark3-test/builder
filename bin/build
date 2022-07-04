@@ -1,3 +1,10 @@
 #!/usr/bin/env node
 
+const builder = require("../src");
+
+builder.prepareEnvironment().then(() => {
+	console.log("Cloning proxmark3");
+	console.log("Building proxmark3");
+});
+
 // vi: ft=javascript

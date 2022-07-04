@@ -40,7 +40,7 @@ module.exports = (docker) => {
 				return `${network._prefix}${i + 1}`;
 			});
 
-			network.listNetworks().then(oldNetworks => {
+			return network.listNetworks().then(oldNetworks => {
 				const existingNetworks = {};
 
 				oldNetworks.forEach(net => existingNetworks[net.Name] = net);
@@ -53,8 +53,6 @@ module.exports = (docker) => {
 					return network.createNetwork(networkName);
 				}));
 			});
-
-			return Promise.resolve();
 		}
 	};
 

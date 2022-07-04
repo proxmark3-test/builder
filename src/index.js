@@ -44,5 +44,4 @@ const builder = {
 
 builder._init();
 
-builder.prepareEnvironment().then(() => {
-}).catch(console.error);
+module.exports = builder;
