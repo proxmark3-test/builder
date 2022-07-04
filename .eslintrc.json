@@ -1,6 +1,7 @@
 {
     "ignorePatterns": [ "public/js/*.js", "node_modules/**", "out/**" ],
     "env": {
+        "es6": true,
         "node": true,
         "commonjs": true
     },
