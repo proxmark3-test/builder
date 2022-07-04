@@ -11,11 +11,11 @@ code and uploads artifacts to permanent storage.
 
 ## TODO
 
-- [*] Automatic image build
+- [x] Automatic image build
 
-- [*] Automatic code build with error detection
+- [x] Automatic code build with error detection
 
-- [*] Example build script
+- [x] Example build script
 
 - [ ] Listen for tasks
 
