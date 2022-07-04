@@ -1,5 +1,9 @@
 const Docker = require("dockerode");
+
+const config = require("./config");
+
 const image = require("./image");
+const network = require("./network");
 
 const builder = {
 	_docker: undefined,
@@ -22,6 +26,10 @@ const builder = {
 					console.log(out.stream.trim());
 				});
 			});
+		},
+		(docker) => {
+			console.log("Creating networks");
+			return network(docker).createNetworks(config.get("THREADS"));
 		}
 	],
 

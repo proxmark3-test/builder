@@ -2,6 +2,7 @@ const path = require("path");
 
 module.exports = (docker) => {
 	const image = {
+		// TODO: Label image
 		_buildImage: (name) => {
 			name = name || "proxmark3-builder";
 
