@@ -11,15 +11,15 @@ code and uploads artifacts to permanent storage.
 
 ## TODO
 
-[*] Automatic image build
+- [*] Automatic image build
 
-[*] Automatic code build with error detection
+- [*] Automatic code build with error detection
 
-[*] Example build script
+- [*] Example build script
 
-[ ] Listen for tasks
+- [ ] Listen for tasks
 
-[ ] Live scoped (global or container) log to manager
+- [ ] Live scoped (global or container) log to manager
 
-[ ] Upload artifacts
+- [ ] Upload artifacts
 
