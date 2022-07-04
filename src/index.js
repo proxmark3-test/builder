@@ -3,8 +3,8 @@ const Docker = require("dockerode");
 const config = require("./config");
 
 const image = require("./image");
-const network = require("./network");
 const repository = require("./repository");
+const container = require("./container");
 
 const builder = {
 	_docker: undefined,
@@ -27,10 +27,6 @@ const builder = {
 					console.log(out.stream.trim());
 				});
 			});
-		},
-		(docker) => {
-			console.log("Creating networks");
-			return network(docker).createNetworks(config.get("THREADS"));
 		}
 	],
 
@@ -48,9 +44,11 @@ const builder = {
 		console.log(`Cloning ${url}`);
 
 		return repo.clone().then(() => {
-			console.log(repo.getPath());
+			console.log(`Building ${url} ${tag}`);
 
-			repo.cleanup();
+			return container(builder._docker).build(repo.getPath(), tag).then(() => {
+				repo.cleanup();
+			});
 		}).catch(err => {
 			repo.cleanup();
 
