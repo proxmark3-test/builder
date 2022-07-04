@@ -5,6 +5,7 @@ module.exports = (docker) => {
 	const container = {
 		build: (url, tag) => {
 			return new Promise((resolve, reject) => {
+				// TODO: Limit resources
 				docker.run("proxmark3-builder", [
 					"bash",
 					"/env/build.sh"
@@ -25,7 +26,8 @@ module.exports = (docker) => {
 							{
 								Target: "/env",
 								Type: "bind",
-								Source: path.join(__dirname, "../../environment")
+								Source: path.join(__dirname, "../../environment"),
+								ReadOnly: true
 							}
 						]
 					}
