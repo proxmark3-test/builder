@@ -11,7 +11,17 @@ const builder = {
 	_prepareEnvironment: [
 		(docker) => {
 			console.log("Building image...");
-			return image(docker).buildImage();
+			return image(docker).buildImage().then(output => {
+				output.filter(out => out.stream || out.errorDetail).forEach(out => {
+					if(out.errorDetail) {
+						console.error(out.error.trim());
+
+						process.exit(out.errorDetail.code);
+					}
+
+					console.log(out.stream.trim());
+				});
+			});
 		}
 	],
 
