@@ -1,0 +1,13 @@
+{
+  "name": "builder",
+  "version": "0.0.0",
+  "description": "Builder for proxmark3 hardware test",
+  "main": "src/index.js",
+  "repository": "git@github.com:proxmark3-test/builder.git",
+  "author": "nemanjan00 <nemanjan00@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "dockerode": "^3.3.2"
+  }
+}
