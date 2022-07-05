@@ -1,7 +1,5 @@
 const Docker = require("dockerode");
 
-const config = require("./config");
-
 const image = require("./image");
 const repository = require("./repository");
 const container = require("./container");
