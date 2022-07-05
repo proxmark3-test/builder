@@ -3,7 +3,7 @@
 const builder = require("../src");
 
 builder.prepareEnvironment().then(() => {
-	builder.build("https://github.com/RfidResearchGroup/proxmark3", "master");
+	builder.build("https://github.com/nemanjan00/proxmark3.git", "reboot-to-bootloader");
 }).catch(console.error);
 
 // vi: ft=javascript
