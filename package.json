@@ -10,6 +10,7 @@
   "dependencies": {
     "dockerode": "^3.3.2",
     "simple-git": "^3.10.0",
+    "tar": "^6.1.11",
     "tmp": "^0.2.1"
   }
 }

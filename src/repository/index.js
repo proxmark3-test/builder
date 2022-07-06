@@ -2,6 +2,7 @@ const path = require("path");
 
 const tmp = require("tmp");
 const git = require("simple-git")();
+const tar = require("tar");
 
 tmp.setGracefulCleanup();
 
@@ -22,6 +23,15 @@ module.exports = (url) => {
 
 		getPath: () => {
 			return repository._tmp.name;
+		},
+
+		tar: (path) => {
+			return tar.c({
+				gzip: false,
+				file: path
+			}, [repository.getPath()]).then(() => {
+				console.log("Built package");
+			});
 		}
 	};
 

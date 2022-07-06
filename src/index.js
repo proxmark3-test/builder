@@ -45,7 +45,9 @@ const builder = {
 			console.log(`Building ${url} ${tag}`);
 
 			return container(builder._docker).build(repo.getPath(), tag).then(() => {
-				repo.cleanup();
+				repo.tar("/tmp/pm3.tar").then(() => {
+					repo.cleanup();
+				});
 			});
 		}).catch(err => {
 			repo.cleanup();
