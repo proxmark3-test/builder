@@ -28,8 +28,9 @@ module.exports = (url) => {
 		tar: (path) => {
 			return tar.c({
 				gzip: false,
-				file: path
-			}, [repository.getPath()]).then(() => {
+				file: path,
+				cwd: repository.getPath()
+			}, ["."]).then(() => {
 				console.log("Built package");
 			});
 		}
